@@ -5,8 +5,8 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 
-model_placement = joblib.load('artifacts/Placement_Prediction.pkl')
-model_salary = joblib.load('artifacts/Salary_Prediction.pkl')
+model_placement = joblib.load('Placement_Prediction.pkl')
+model_salary = joblib.load('Salary_Prediction.pkl')
 
 def main():
 
