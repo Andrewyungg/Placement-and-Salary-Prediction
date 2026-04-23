@@ -94,6 +94,42 @@ def main():
         with st.expander("Show Input Data"):
             st.dataframe(df)
 
+        col1, col2 = st.columns([2, 1])
+
+        with col1:
+            st.subheader("Performance Overview (Academic + Skill)")
+
+            performance = {
+                "SSC": ssc,
+                "HSC": hsc,
+                "Degree": degree,
+                "CGPA": cgpa * 10,
+                "Technical": tech,
+                "Soft": soft,
+                "Entrance": entrance
+            }
+
+            fig, ax = plt.subplots(figsize=(5, 2.5)) 
+
+            bars = ax.bar(performance.keys(), performance.values())
+
+            ax.set_ylim(0, 100)
+            ax.set_title("Academic & Skill Performance", fontsize=10)
+            ax.set_ylabel("Score", fontsize=8)
+
+            plt.xticks(rotation=30, fontsize=8)
+
+            for bar in bars:
+                height = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2, height + 1,
+                        f'{int(height)}',
+                        ha='center', va='bottom', fontsize=7)
+
+            ax.spines['top'].set_visible(False)
+            ax.spines['right'].set_visible(False)
+
+            st.pyplot(fig, use_container_width=False)
+
 # tidak dipakai
 def make_prediction(features):
     response = requests.post("http://127.0.0.1:8000/predict", json=features)
