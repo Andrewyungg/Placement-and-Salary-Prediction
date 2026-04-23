@@ -31,22 +31,22 @@ def main():
 
         with col1:
             gender = st.selectbox("Gender", ["Male", "Female"])
-            ssc = st.number_input("SSC Percentage", 50, 95, 72)
-            hsc = st.number_input("HSC Percentage", 50, 94, 72)
-            degree = st.number_input("Degree Percentage", 55, 89, 72)
-            cgpa = st.number_input("CGPA", 5.5, 9.8, 7.7)
-
+            ssc = st.number_input("SSC Percentage", 0, 100, 72)
+            hsc = st.number_input("HSC Percentage", 0, 100, 72)
+            degree = st.number_input("Degree Percentage", 0, 100, 72)
+            cgpa = st.number_input("CGPA", 0.0, 10.0, 7.7)
+        
         with col2:
-            entrance = st.number_input("Entrance Exam Score", 40, 99, 69)
-            tech = st.number_input("Technical Skill Score", 40, 99, 70)
-            soft = st.number_input("Soft Skill Score", 40, 99, 69)
+            entrance = st.number_input("Entrance Exam Score", 0, 100, 69)
+            tech = st.number_input("Technical Skill Score", 0, 100, 70)
+            soft = st.number_input("Soft Skill Score", 0, 100, 69)
             internship = st.number_input("Internship Count", 0, 4, 2)
             projects = st.number_input("Live Projects", 0, 5, 3)
-
+        
         with col3:
             experience = st.number_input("Work Experience (Months)", 0, 24, 12)
             cert = st.number_input("Certifications", 0, 5, 2)
-            attendance = st.number_input("Attendance (%)", 60, 99, 80)
+            attendance = st.number_input("Attendance (%)", 0, 100, 80)
             backlogs = st.number_input("Backlogs", 0, 5, 3)
             extra = st.selectbox("Extracurricular Activities", ["Yes", "No"])
 
